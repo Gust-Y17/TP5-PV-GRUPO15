@@ -1,5 +1,5 @@
 import React from "react";
-const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) => {
+const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) =>   {
   return (
     <div>
       <h3>Lista de Alumnos</h3>
@@ -22,5 +22,13 @@ const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) => {
       )}
     </div>
   );
+};
+import PropTypes from "prop-types";
+ListAlumno. PropTypes = {
+
+  alumno: PropTypes.array.isRequired,
+  onEditar: PropTypes.func.isRequired,
+  onEliminar: PropTypes.func.isRequired,
+  onVerDetalles: PropTypes.func.isRequired,
 };
 export default ListAlumno;
