@@ -11,6 +11,11 @@ const App = () => {
   const agregarAlumno = (nuevoAlumno) => {
     setAlumnos([...alumnos, nuevoAlumno]);
   };
+  const editarAlumno = (alumnoEditado) => {
+    setAlumnos(alumnos.map(alumno => 
+      alumno.id === alumnoEditado.id ? alumnoEditado : alumno
+    ));
+  };
 
   return (
     <div>
@@ -18,7 +23,7 @@ const App = () => {
       <AddAlumno onAgregar={agregarAlumno} />
       <ListAlumno
         alumnos={alumnos}
-        onEditar={(alumno) => console.log('Editar', alumno)}
+        onEditar={editarAlumno}
         onEliminar={(id) => console.log('Eliminar', id)}
         onVerDetalles={(id) => {
           const alumno = alumnos.find((al) => al.id === id);
