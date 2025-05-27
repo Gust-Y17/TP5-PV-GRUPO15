@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ItemAlumno from "./ItemAlumno"
 const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) => {
 const [alumnoAEditar,setAlumnoAEditar] = useState (null)
