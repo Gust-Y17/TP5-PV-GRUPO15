@@ -12,7 +12,7 @@ const DetallesAlumno = ({ alumno, onCerrar }) => {
             <p><strong>Curso:</strong> {alumno.curso}</p>
             <p><strong>Email:</strong> {alumno.email}</p>
             <p><strong>Domicilio:</strong> {alumno.domicilio}</p>
-            <p><strong>Teléfono:</strong> {alumno.telefono}</p>
+            <p><strong>Teléfono:</strong> {alumno.numeroTelefono}</p>
             <button onClick={onCerrar}>Cerrar</button>
         </div>
     );
