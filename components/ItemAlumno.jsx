@@ -56,11 +56,19 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
                             placeholder="Email"
                         />
                         <input
-                            type="number"
+                            type="tel"
                             name="numeroTelefono"
                             value={DatEditado.numeroTelefono}
                             onChange={handlechange}
                             placeholder="Numero de Telefono"
+                            pattern="[0-9]*"
+                        />
+                        <input
+                        type="text"
+                        name="domicilio"
+                        value={DatEditado.domicilio}
+                        onChange={handlechange}
+                        placeholder="Domicilio"
                         />
                         <div className="botones-edicion">
                             <button type="submit">GUARDAR</button>

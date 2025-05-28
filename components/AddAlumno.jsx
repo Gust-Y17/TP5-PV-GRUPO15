@@ -39,7 +39,7 @@ const AddAlumno = ({ onAgregar }) => {
       <input type="text" placeholder="Curso" value={curso} onChange={(e) => setCurso(e.target.value)} />
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="text" placeholder="Domicilio" value={domicilio} onChange={(e) => setDomicilio(e.target.value)} />
-      <input type="tel" placeholder="Teléfono" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
+      <input type="tel" placeholder="Teléfono" value={telefono} pattern="[0-9]*" onChange={(e) => setTelefono(e.target.value)} />
       <button type="submit">Agregar</button>
     </form>
   );
