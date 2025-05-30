@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import AddAlumno from '../components/AddAlumno';
+import AgregarAlumno from '../components/AgregarAlumno';
 import ListAlumno from '../components/ListAlumno';
 import DetallesAlumno from '../components/DetallesAlumno';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const App = () => {
   const [alumnos, setAlumnos] = useState([]);
@@ -18,9 +21,14 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Gestión de Alumnos</h1>
-      <AddAlumno onAgregar={agregarAlumno} />
+    <Container>
+      <Row>
+        <Col>
+          <h1>Gestión de Alumnos</h1>
+        </Col>
+      </Row>
+
+      <AgregarAlumno onAgregar={agregarAlumno} />
       <ListAlumno
         alumnos={alumnos}
         onEditar={editarAlumno}
@@ -38,7 +46,7 @@ const App = () => {
           onCerrar={() => setAlumnoSeleccionado(null)}
         />
       )}
-    </div>
+    </Container>
   );    
 };
 

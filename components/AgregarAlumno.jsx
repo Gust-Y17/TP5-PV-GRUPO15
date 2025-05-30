@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddAlumno = ({ onAgregar }) => {
+const agregarAlumno = ({ onAgregar }) => {
   const [lu, setLu] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -45,4 +45,4 @@ const AddAlumno = ({ onAgregar }) => {
   );
 };
 
-export default AddAlumno;
+export default agregarAlumno;
