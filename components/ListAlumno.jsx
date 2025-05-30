@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ItemAlumno from "./ItemAlumno"
+import Container from "react-bootstrap/Container";
+
 const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) => {
 const [alumnoAEditar,setAlumnoAEditar] = useState (null)
 
@@ -13,7 +15,7 @@ const guardarEdicion = (alumnoAEditar) => {
 }
   
   return (
-    <div>
+    <Container>
       <h3>Lista de Alumnos</h3>
 
       {alumnos.length === 0 ? (
@@ -32,7 +34,6 @@ const guardarEdicion = (alumnoAEditar) => {
               ) : (
              <div className="alumno">
                 <p><strong>Nombre:</strong> {alumno.nombre}</p>
-                <p><strong>Edad:</strong> {alumno.edad}</p>
                 <div className="boton">
                   <button onClick={() => handleEditar(alumno)}>Editar</button>
                   <button onClick={() => onEliminar(alumno.id)}>Eliminar</button>
@@ -44,7 +45,7 @@ const guardarEdicion = (alumnoAEditar) => {
       ))}
     </div>
   )};
-  </div>
+  </Container>
 );
 };
 export default ListAlumno;
