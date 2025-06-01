@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './App.css';
-import AgregarAlumno from '../components/AgregarAlumno';
+ import AgregarAlumno from '../components/AgregarAlumno';
 import ListAlumno from '../components/ListAlumno';
 import DetallesAlumno from '../components/DetallesAlumno';
 import Container from 'react-bootstrap/Container';
@@ -33,6 +32,11 @@ const App = () => {
       </Row>
 
       <AgregarAlumno onAgregar={agregarAlumno} />
+      <Row>
+        <Col>
+        <h2>Lista de alumnos</h2>
+        </Col>
+      </Row>
       <ListAlumno
         alumnos={alumnos}
         onEditar={editarAlumno}
