@@ -41,16 +41,69 @@ const AgregarAlumno = ({ onAgregar }) => {
     };
 
   return (
-    <Form onSubmit={handleSubmit} className='needs-validation' noValidate> 
-          <Form.Control type="text" required className="form-control" placeholder="LU" value={lu} onChange={(e) => setLu(e.target.value)} />
-      <input type="text" required className="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      <input type="text" required className="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" placeholder="Apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} />
-      <input type="text" required className="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" placeholder="Curso" value={curso} onChange={(e) => setCurso(e.target.value)} />
-      <input type="email" required className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="text" required className="form-control"  placeholder="Domicilio" value={domicilio} onChange={(e) => setDomicilio(e.target.value)} />
-      <input type="tel" required className="form-control"  placeholder="Teléfono" value={numeroTelefono} pattern="[0-9]{9,}" onChange={(e) => setTelefono(e.target.value)} />
-      <button type="submit">Agregar</button>
-    </Form>
+    <form onSubmit={handleSubmit} className='needs-validation' noValidate> 
+          <input 
+          type="text" 
+          required 
+          className="form-control" 
+          placeholder="LU" 
+          value={lu}
+         onChange={(e) => setLu(e.target.value)} />
+         
+          <input 
+          type="text" 
+          required 
+          className="form-control" 
+          pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" 
+          placeholder="Nombre" 
+          value={nombre} 
+          onChange={(e) => setNombre(e.target.value)} />
+
+          <input 
+          type="text" 
+          required 
+          className="form-control" 
+          pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" 
+          placeholder="Apellido" 
+          value={apellido} 
+          onChange={(e) => setApellido(e.target.value)} />
+
+          <input 
+          type="text" 
+          required 
+          className="form-control" 
+          pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" 
+          placeholder="Curso"
+          value={curso} 
+          onChange={(e) => setCurso(e.target.value)} />
+
+          <input 
+          type="email" 
+          required 
+          className="form-control" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} />
+
+
+          <input 
+          type="text" 
+          required
+          className="form-control"  
+          placeholder="Domicilio" 
+          value={domicilio} 
+          onChange={(e) => setDomicilio(e.target.value)} />
+          <input 
+          type="tel" 
+          required 
+          className="form-control" 
+          placeholder="Teléfono"
+          value={numeroTelefono} 
+          pattern="[0-9]{9,}" 
+          onChange={(e) => setTelefono(e.target.value)} />
+          
+          <button type="submit">Agregar</button>
+    </form>
   );
 };
 

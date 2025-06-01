@@ -20,8 +20,8 @@ const App = () => {
     ));
   };
    const eliminarAlumno = (id) => {
-    setAlumnos(alumnos.filter(alumno => alumno.id !== alumno.id)) 
-   }
+    setAlumnos((prev) => prev.filter((alumno) => alumno.id !== id));
+   };
 
 
   return (
