@@ -18,7 +18,7 @@ const guardarEdicion = (alumnoAEditar) => {
   return (
     <Container>
       {alumnos.length === 0 ? (
-        <p>No hay alumnos.</p>
+        <p>NO HAY ALUMNOS AGREGADOS POR EL MOMENTO</p>
       ) : (
         <Row>
           {alumnos.map((alumno) => (
