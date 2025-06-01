@@ -1,5 +1,5 @@
 import { useState } from "react";
-const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
+const ItemAlumno = ({alumno, onGuardar, onCancelar,}) => {
 
      const [DatEditado,setDatEditado] = useState({...alumno});
 
@@ -13,17 +13,24 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const form = e.target;
+        if(!form.checkValidity()){
+            form.classList.add('was-validated');
+            return;
+        }
         onGuardar(DatEditado)
+
     };
 
     return (
                    <div className="formulario-edicion">
                         <h4>Editando alumno...</h4>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className="needs-validation" noValidate>
                         <input
                             type="text"
                             name="lu"
                             value={DatEditado.lu}
+                            className="form-control"
                             onChange={handlechange}
                             placeholder="LU:APU0009"
                         />
@@ -31,27 +38,34 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
                             type="text"
                             name="nombre"
                             value={DatEditado.nombre}
+                             className="form-control"
                             onChange={handlechange}
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
                             placeholder="Nombre Alumno"
                         />
                         <input
                             type="text"
                             name="apellido"
                             value={DatEditado.apellido}
+                             className="form-control"
                             onChange={handlechange}
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
                             placeHolder="Apellido Alumno"
                         />                    
                         <input 
                             type="text"
                             name="curso"
                             value={DatEditado.curso}
+                             className="form-control"
                             onChange={handlechange}
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
                             placeHolder="Curso"
                         />
                         <input
                             type="email"
                             name="email"
                             value={DatEditado.email}
+                             className="form-control"
                             onChange={handlechange}
                             placeholder="Email"
                         />
@@ -59,6 +73,7 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
                             type="tel"
                             name="numeroTelefono"
                             value={DatEditado.numeroTelefono}
+                             className="form-control"
                             onChange={handlechange}
                             placeholder="Numero de Telefono"
                             pattern="[0-9]*"
@@ -67,6 +82,7 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar}) => {
                         type="text"
                         name="domicilio"
                         value={DatEditado.domicilio}
+                         className="form-control"
                         onChange={handlechange}
                         placeholder="Domicilio"
                         />
