@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const AgregarAlumno = ({ onAgregar }) => {
   const [lu, setLu] = useState('');
@@ -102,7 +102,7 @@ const AgregarAlumno = ({ onAgregar }) => {
           pattern="[0-9]{9,}" 
           onChange={(e) => setTelefono(e.target.value)} />
           
-          <button type="submit">Agregar</button>
+          <Button variant="primary"type="submit">Agregar</Button>
     </form>
   );
 };

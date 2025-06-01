@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button'
 const ItemAlumno = ({alumno, onGuardar, onCancelar,}) => {
 
      const [DatEditado,setDatEditado] = useState({...alumno});
@@ -87,8 +88,8 @@ const ItemAlumno = ({alumno, onGuardar, onCancelar,}) => {
                         placeholder="Domicilio"
                         />
                         <div className="botones-edicion">
-                            <button type="submit">GUARDAR</button>
-                            <button type="button" onClick={onCancelar}>CANCELAR</button>
+                            <Button variant="primary"type="submit">GUARDAR</Button>
+                            <Button variant="danger" type="button" onClick={onCancelar}>CANCELAR</Button>
                         </div>
                         </form>
                     </div>

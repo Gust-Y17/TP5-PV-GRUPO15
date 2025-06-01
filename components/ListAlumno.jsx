@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ItemAlumno from "./ItemAlumno"
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Container,Button,Card,Col,Row} from "react-bootstrap";
+ 
 
 const ListAlumno = ({ alumnos, onEditar, onEliminar, onVerDetalles }) => {
 const [alumnoAEditar,setAlumnoAEditar] = useState (null)
@@ -18,16 +17,15 @@ const guardarEdicion = (alumnoAEditar) => {
   
   return (
     <Container>
-
       {alumnos.length === 0 ? (
         <p>NO HAY ALUMNOS AGREGADOS POR EL MOMENTO</p>
       ) : (
-
         <Row>
-            <h3>Lista de Alumnos</h3>
           {alumnos.map((alumno) => (
-           
-            <div key={alumno.id}>
+            <Col key={alumno.id}>
+              <Card>
+                
+               
               {alumnoAEditar?.id === alumno.id ? (
                 <ItemAlumno
                 alumno={alumnoAEditar}
@@ -35,19 +33,22 @@ const guardarEdicion = (alumnoAEditar) => {
                 onCancelar={()=> setAlumnoAEditar(null)}
                 />
               ) : (
-                <div className="alumno">
-                  <p><strong>Nombre:</strong> {alumno.nombre}</p>
-                  <Col className="boton">
-                    <button onClick={() => handleEditar(alumno)}>Editar</button>
-                    <button onClick={() => onEliminar(alumno.id)}>Eliminar</button>
-                    <button onClick={() => onVerDetalles(alumno.id)}>Ver Detalles</button>
-                  </Col>
-                </div>
-                )}
-            </div>
-        ))}
-        </Row>
-    )}
+                <Card.Body className="tarjetas">
+                  <Card.Img variant="top" src="../src/assets/blue-profile-icon-free-png.webp"/>
+                 <Card.Title><strong>NOMBRE: </strong>{alumno.nombre}</Card.Title>
+                <div className="boton">
+                  <Button variant="success"onClick={() => handleEditar(alumno)}>Editar</Button>
+                  <Button variant="danger"onClick={() => onEliminar(alumno.id)}>Eliminar</Button>
+                  <Button variant="warning"onClick={() => onVerDetalles(alumno.id)}>Ver Detalles</Button>
+                </div>        
+
+          </Card.Body>
+          )}
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  )};
   </Container>
 );
 };
