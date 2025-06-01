@@ -19,6 +19,10 @@ const App = () => {
       alumno.id === alumnoEditado.id ? alumnoEditado : alumno
     ));
   };
+   const eliminarAlumno = (id) => {
+    setAlumnos((prev) => prev.filter((alumno) => alumno.id !== id));
+   };
+
 
   return (
     <Container>
@@ -32,7 +36,7 @@ const App = () => {
       <ListAlumno
         alumnos={alumnos}
         onEditar={editarAlumno}
-        onEliminar={(id) => console.log('Eliminar', id)}
+        onEliminar={eliminarAlumno}
         onVerDetalles={(id) => {
           const alumno = alumnos.find((al) => al.id === id);
           console.log('Alumno seleccionado:', alumno);
