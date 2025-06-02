@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import AgregarAlumno from '../components/AgregarAlumno';
-import ListAlumno from '../components/ListAlumno';
+import ListAlumno from '../components/ListaAlumnos';
 import DetallesAlumno from '../components/DetallesAlumno';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
