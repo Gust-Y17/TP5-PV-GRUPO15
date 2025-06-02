@@ -48,7 +48,7 @@ const guardarEdicion = (alumnoAEditar) => {
         </Col>
       ))}
     </Row>
-  )};
+  )}
   </Container>
 );
 };
