@@ -1,61 +1,50 @@
-import { useState } from 'react';
- import AgregarAlumno from '../components/AgregarAlumno';
-import ListAlumno from '../components/ListAlumno';
-import DetallesAlumno from '../components/DetallesAlumno';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Routes, Route, data } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Navbar from "./components/NavBar";
+import Home from './views/Home';
+import About from './views/About';
+import ListadoAlumnos from './views/ListadoAlumnos';
+import NuevoAlumno from './views/NuevoAlumno';
+import DetallesAlumno from './components/DetallesAlumno';
+import "./styles/App.css";
+
 
 const App = () => {
-  const [alumnos, setAlumnos] = useState([]);
-  const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
+  const [alumnos, setAlumnos] = useState(() => {
+    const datosGuardados = localStorage.getItem("alumnos");
+    return datosGuardados ? JSON.parse(datosGuardados) : [];
+  });
 
   const agregarAlumno = (nuevoAlumno) => {
-    setAlumnos([...alumnos, nuevoAlumno]);
+    setAlumnos((prev) => [...prev, nuevoAlumno]);
   };
+
+  useEffect(() => {
+    localStorage.setItem("alumnos", JSON.stringify(alumnos));
+  }, [alumnos]);
+
   const editarAlumno = (alumnoEditado) => {
-    setAlumnos(alumnos.map(alumno => 
+    setAlumnos(alumnos.map((alumno) =>
       alumno.id === alumnoEditado.id ? alumnoEditado : alumno
     ));
-  };
-   const eliminarAlumno = (id) => {
-    setAlumnos((prev) => prev.filter((alumno) => alumno.id !== id));
-   };
+  }
 
+  const eliminarAlumno = (id) => {
+    setAlumnos((prev) => prev.filter((alumno) => alumno.id !== id));
+  };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>Gestión de Alumnos</h1>
-        </Col>
-      </Row>
-
-      <AgregarAlumno onAgregar={agregarAlumno} />
-      <Row>
-        <Col>
-        <h2>Lista de alumnos</h2>
-        </Col>
-      </Row>
-      <ListAlumno
-        alumnos={alumnos}
-        onEditar={editarAlumno}
-        onEliminar={eliminarAlumno}
-        onVerDetalles={(id) => {
-          const alumno = alumnos.find((al) => al.id === id);
-          console.log('Alumno seleccionado:', alumno);
-          setAlumnoSeleccionado(alumno);
-        }}
-      />
-      
-      {alumnoSeleccionado && (
-        <DetallesAlumno
-          alumno={alumnoSeleccionado}
-          onCerrar={() => setAlumnoSeleccionado(null)}
-        />
-      )}
-    </Container>
-  );    
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/alumnos" element={<ListadoAlumnos alumnos={alumnos} onEditar={editarAlumno} onEliminar={eliminarAlumno} />} />
+        <Route path="/nuevo-alumno" element={<NuevoAlumno onAgregar={agregarAlumno} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/alumnos/:id" element={<DetallesAlumno alumnos={alumnos} onCerrar={() => setAlumnoSeleccionado(null)} />} />
+      </Routes>
+    </>
+  );
 };
 
 export default App;
