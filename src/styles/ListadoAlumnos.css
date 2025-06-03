@@ -21,3 +21,18 @@
 .boton {
     margin-right: 5px;
 }
+
+.card-body .boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.card-body .boton button {
+  min-width: 80px;
+  font-size: 14px;
+  padding: 10px;
+  white-space: nowrap;
+}
