@@ -7,7 +7,7 @@ const About = () => {
       <h1>Sobre el Grupo 15</h1>
 
       <Row className="justify-content-center">
-        <Col md={2}>
+        <Col md={4} lg={3} sm={5}>
           <Card className="team-card">
             <Card.Img variant="top" src="../public/blue-profile.webp" />
             <Card.Body>
@@ -16,7 +16,7 @@ const About = () => {
           </Card>
         </Col>
 
-        <Col md={2}>
+        <Col md={4} lg={3} sm={5}>
           <Card className="team-card">
             <Card.Img variant="top" src="../public/blue-profile.webp" />
             <Card.Body>
@@ -25,7 +25,7 @@ const About = () => {
           </Card>
         </Col>
 
-        <Col md={2}>
+        <Col md={4} lg={3} sm={5}>
           <Card className="team-card">
             <Card.Img variant="top" src="../public/blue-profile.webp" />
             <Card.Body>
@@ -34,7 +34,7 @@ const About = () => {
           </Card>
         </Col>
 
-        <Col md={2}>
+        <Col md={4} lg={3} sm={5}>
           <Card className="team-card">
             <Card.Img variant="top" src="../public/blue-profile.webp" />
             <Card.Body>
@@ -43,7 +43,7 @@ const About = () => {
           </Card>
         </Col>
 
-        <Col md={2}>
+        <Col md={4} lg={3} sm={5}>
           <Card className="team-card">
             <Card.Img variant="top" src="../public/blue-profile.webp" />
             <Card.Body>

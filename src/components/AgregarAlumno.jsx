@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import "../styles/AgregarAlumno.css";
 
 const AgregarAlumno = ({ onAgregar }) => {
@@ -41,7 +44,9 @@ const AgregarAlumno = ({ onAgregar }) => {
   };
 
   return (
-    <div className='agregar-alumno-container'>
+  <Container className='agregar-alumno-container'>
+    <Row>
+      <Col md={15} sm={15} lg={15}>
       <form onSubmit={handleSubmit} className='needs-validation' noValidate>
         <input
           type="text"
@@ -105,7 +110,9 @@ const AgregarAlumno = ({ onAgregar }) => {
 
         <Button variant="primary" type="submit">Agregar</Button>
       </form>
-    </div>
+      </Col>
+    </Row>
+  </Container>
   );
 };
 

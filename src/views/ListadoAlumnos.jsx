@@ -55,7 +55,7 @@ const ListadoAlumnos = ({ alumnos, onEditar, onEliminar }) => {
     <Container className="listado-alumnos-container">
       <Row>
         {alumnos.map((alumno) => (
-          <Col key={alumno.id} md={4} className="mb-4">
+          <Col key={alumno.id} md={6} sm={7} lg={4} className="mb-4">
             <Card className="tarjeta-alumno">
               <Card.Img variant="top" src="../public/estudiante.png" />
               <Card.Body>
