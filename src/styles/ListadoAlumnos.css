@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+.listado-alumnos-container {
+  min-height: 10vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+    border-radius: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 300;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 5px;
+}
+
+.boton {
+    margin-right: 5px;
+}
+
+.card-body .boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.card-body .boton button {
+  min-width: 80px;
+  font-size: 14px;
+  padding: 10px;
+  white-space: nowrap;
+}
