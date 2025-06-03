@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import ModalConfirmacion from "../components/ModalDeConfirmacion";
 import ModalDeDetalles from "../components/ModalDeDetalles";
+import ModalEditar from "../components/ModalEditar";
 import "../styles/ListadoAlumnos.css";
 
 const ListadoAlumnos = ({ alumnos, onEditar, onEliminar }) => {
   const [showModalEliminar, setShowModalEliminar] = useState(false);
   const [showModalDetalles, setShowModalDetalles] = useState(false);
+  const [showModalEditar, setShowModalEditar] = useState(false);
   const [alumnoSeleccionado, setAlumnoSeleccionado] = useState(null);
 
   const abrirModalEliminar = (alumno) => {
@@ -34,6 +36,21 @@ const ListadoAlumnos = ({ alumnos, onEditar, onEliminar }) => {
     setAlumnoSeleccionado(null);
   };
 
+  const abrirModalEditar = (alumno) => {
+    setAlumnoSeleccionado(alumno);
+    setShowModalEditar(true);
+  };
+
+  const cerrarModalEditar = () => {
+    setShowModalEditar(false);
+    setAlumnoSeleccionado(null);
+  };
+
+  const guardarEdicion = (alumnoEditado) => {
+    onEditar(alumnoEditado);
+    cerrarModalEditar();
+  };
+
   return (
     <Container className="listado-alumnos-container">
       <Row>
@@ -47,8 +64,11 @@ const ListadoAlumnos = ({ alumnos, onEditar, onEliminar }) => {
                   <strong>Curso:</strong> {alumno.curso} <br />
                   <strong>Email:</strong> {alumno.email}
                 </Card.Text>
-                <Button className="boton" variant="warning" onClick={() => abrirModalDetalles(alumno)}>Ver Detalles</Button>
-                <Button className="boton" variant="danger" onClick={() => abrirModalEliminar(alumno)}>Eliminar</Button>
+                <div className="boton">
+                  <Button variant="warning" onClick={() => abrirModalDetalles(alumno)}>Ver Detalles</Button>
+                  <Button variant="primary" onClick={() => abrirModalEditar(alumno)}>Editar</Button>
+                  <Button variant="danger" onClick={() => abrirModalEliminar(alumno)}>Eliminar</Button>
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -56,8 +76,8 @@ const ListadoAlumnos = ({ alumnos, onEditar, onEliminar }) => {
       </Row>
 
       <ModalConfirmacion show={showModalEliminar} handleClose={cerrarModalEliminar} handleConfirm={confirmarEliminacion} />
-
       <ModalDeDetalles show={showModalDetalles} handleClose={cerrarModalDetalles} alumno={alumnoSeleccionado} />
+      <ModalEditar show={showModalEditar} handleClose={cerrarModalEditar} alumno={alumnoSeleccionado} onGuardar={guardarEdicion} />
     </Container>
   );
 };

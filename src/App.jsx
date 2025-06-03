@@ -24,10 +24,12 @@ const App = () => {
   }, [alumnos]);
 
   const editarAlumno = (alumnoEditado) => {
-    setAlumnos(alumnos.map((alumno) =>
-      alumno.id === alumnoEditado.id ? alumnoEditado : alumno
-    ));
-  }
+    setAlumnos((prevAlumnos) =>
+      prevAlumnos.map((alumno) =>
+        alumno.id === alumnoEditado.id ? alumnoEditado : alumno
+      )
+    );
+  };
 
   const eliminarAlumno = (id) => {
     setAlumnos((prev) => prev.filter((alumno) => alumno.id !== id));
